@@ -1,5 +1,5 @@
 /* 
-Coding challange #1
+CODING CHALLANGE #1
  
 Mark and John are trying to compare their BMI (Body Mass Index), which is
 calculated using the formula:
@@ -46,8 +46,10 @@ if (age >= 18) {
   console.log(`Sarah is too young. Wait another ${yearsLeft} years 😊`);
 }
 
+------------------------------------------------------------------------
 
-Coding challange #2
+CODING CHALLANGE #2
+
 Use the BMI example from Challenge #1, and the code you already wrote, and
 improve it.
 Your tasks:
@@ -72,4 +74,84 @@ if (BMIMark > BMIJohn) {
 } else {
   console.log(`John's BMI (${BMIJohn}) is higher than Mark's!`);
 }
+
+------------------------------------------------------------------------
+
+TYPE CONVERSION
+
+let inputYear = '1991';
+console.log(Number(inputYear), inputYear);
+console.log(inputYear + 18);
+console.log(Number('Gabor')); //NaN, Invalid number
+console.log(typeof NaN); // result = number
+console.log(String(1991), 23);
+
+TYPE COERCION
+
+console.log('I am ' + 29 + ' years old');
+console.log('I am ' + '29' + ' years old'); // SAME
+
+console.log('23' - '10' - 3); // 10
+console.log('23' + '10' + 3); // 23103
+console.log('23' * '2'); // 46
+console.log('23' / '2'); // 11.5
+
+let n = '1' + 1;
+n = n - 1;
+console.log(n); // n = 10
+
+------------------------------------------------------------------------
+
+TRUTHY AND FALSY VALUES
+
+5 falsy values: 0, '', undefined, null, NaN
+
+console.log(Boolean(0)); // False
+console.log(Boolean(undefined)); // False
+console.log(Boolean('Kakashi')); // False
+console.log(Boolean('')); // True
+console.log(Boolean({})); // True
+
+const money = 0;
+
+if (money) {
+  console.log(`Don't spend it all`);
+} else {
+  console.log(`You should get a job!`);
+}
+
+let height; // undefined
+
+if (height) {
+  console.log('YAY! Height is defined');
+} else {
+  console.log('Height is UNDEFINED');
+}
+
+------------------------------------------------------------------------
+
+EQUALITY OPERATORS
+
+const age = 18;
+if (age === 18) console.log('You just become adult'); // return True or False
+if (age === '18') console.log('You just become adult (strict)'); // False  (Does not perform type coercion!)
+if (age == '18') console.log('You just become adult (loose)'); // True (Type coercion) AVOID it!
+
+const favourite = Number(prompt(`What's your favourite number?`));
+
+if (favourite === 23) {
+  console.log('Cool! 23 is an amazing number!');
+} else if (favourite === 7) {
+  console.log('7 is also a cool number');
+} else {
+  console.log('Number is not 23 or 7');
+}
+
+if (favourite !== 23) {
+  console.log('Why not 23?');
+}
+
+------------------------------------------------------------------------
+
+BOOLEAN LOGIC
 */
