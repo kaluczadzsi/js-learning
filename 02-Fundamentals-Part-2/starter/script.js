@@ -183,4 +183,42 @@ console.log(itachi);
 console.log(
   `${itachi.lastName} has ${itachi.friends.length} friends, and his best friend is called ${itachi['friends'][0]}`
 );
+
+Object methods:
+
+const jonas = {
+  firstName: 'Jonas',
+  lastName: 'Schmedtmann',
+  birthYear: 1991,
+  job: 'Teacher',
+  friends: ['Michael', 'Peter', 'Steven'],
+  hasDriverLicense: true,
+
+  // calcAge(birthYear) {
+  //   return 2023 - birthYear;
+  // },
+
+  // calcAge() {
+  //   console.log(this);
+  //   return 2023 - this.birthYear;
+  // },
+
+  calcAge() {
+    this.age = 2023 - this.birthYear;
+    return this.age;
+  },
+
+  getSummary: function () {
+    return `${jonas.firstName} is a ${jonas.age} years teacher, and ${
+      jonas.hasDriverLicense ? 'he has' : 'he has not'
+    } a drivers license`;
+  },
+};
+
+console.log(jonas.calcAge());
+console.log(jonas.age);
+
+// console.log(jonas['calcAge'](1958));
+
+console.log(jonas.getSummary());
 */
