@@ -85,4 +85,20 @@ const checkWinner = (avgDolphins, avgKoalas) => {
 
 checkWinner(100, 200);
 
+------------------------------------------------------------------------
+
+ARRAYS
+
+const friend1 = 'Michael';
+const friend2 = 'Stever';
+const friend3 = 'Peter';
+
+const friends = [friend1, friend2, friend3];
+console.log(friends);
+console.log(friends[0]);
+console.log(`Last element: ${friends[friends.length - 1]}`);
+
+
+
+
 */
