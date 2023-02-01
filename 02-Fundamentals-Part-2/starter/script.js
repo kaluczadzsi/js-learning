@@ -98,7 +98,26 @@ console.log(friends);
 console.log(friends[0]);
 console.log(`Last element: ${friends[friends.length - 1]}`);
 
+Array methods:
 
+const friends = ['Michael', 'Steven', 'Peter'];
 
+// Add elements
+friends.push('Jay'); // returns array lenght
+friends.unshift('John');
+console.log(friends);
+
+// Remove elements
+const popped = friends.pop(); // returns the removed element
+const shifted = friends.shift(); // returns the removed element
+console.log(friends);
+
+friends.push(23);
+console.log(friends.indexOf('Steven')); // returns the index
+console.log(friends.includes('23')); // returns boolean (strict equality)
+
+if (friends.includes('peter')) {
+  console.log('You have a friend called Peter');
+}
 
 */
