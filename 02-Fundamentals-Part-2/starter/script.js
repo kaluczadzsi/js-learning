@@ -8,12 +8,6 @@ function fruitProcessor(apples, oranges) {
   return juice;
 }
 
-console.log(fruitProcessor(4, 7)); // arguments
-
-------------------------------------------------------------------------
-
-*/
-
 // Function declaration
 function calcAge1(brithYear) {
   return 2023 - brithYear;
@@ -32,3 +26,19 @@ const yearsUntilRetirement = (brithYear) => {
   const retirement = 65 - age;
   return retirement;
 };
+
+// Functions calling other function
+function cutFruitPieces(fruit) {
+  return fruit * 4;
+}
+
+function fruitProcessor(apples, oranges) {
+  const applePieces = cutFruitPieces(apples);
+  const orangePieces = cutFruitPieces(oranges);
+  const juice = `Juice with ${applePieces} apples, and ${orangePieces} oranges.`;
+  return juice;
+}
+
+------------------------------------------------------------------------
+
+*/
