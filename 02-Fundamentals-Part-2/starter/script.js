@@ -143,7 +143,6 @@ actually be the returned value of a function! So you can just call a function as
 values (so don't store the tip values in separate variables first, but right in the new
 array)
 GOOD LUCK
-*/
 
 const bills = [125, 555, 44];
 
@@ -156,3 +155,32 @@ const total = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
 
 console.log(tips);
 console.log(total);
+
+------------------------------------------------------------------------
+
+OBJECTS
+
+const itachi = {
+  firstName: 'Uchiha',
+  lastName: 'Itachi',
+  alive: false,
+  job: 'shinobi',
+  friends: ['Maki', 'Yori', 'Kenzaku'],
+};
+
+console.log(itachi.lastName); // Dot notation
+console.log(itachi['firstName']); // Bracket notation
+
+const nameKey = 'Name';
+console.log(itachi['first' + nameKey]);
+console.log(itachi['last' + nameKey]);
+
+itachi.location = 'Hidden Leaf'; // Dot notation
+itachi['twitter'] = '@itachi';
+
+console.log(itachi);
+
+console.log(
+  `${itachi.lastName} has ${itachi.friends.length} friends, and his best friend is called ${itachi['friends'][0]}`
+);
+*/
