@@ -276,4 +276,44 @@ if (john.bmi > mark.bmi) {
   );
 }
 
+------------------------------------------------------------------------
+
+FOR LOOP
+
+// for loop keeps running while condition is TRUE
+for (let rep = 1; rep <= 10; rep++) {
+  console.log(`Lifting weights repetition ${rep} 🏋️`);
+}
+
+const arr = [
+  'Uchiha',
+  'Itachi',
+  2037 - 1994,
+  'shinobi',
+  ['Yusuke', 'Kageyoshi', 'Suzuya'],
+  true,
+];
+
+const arrTypes = [];
+for (let i = 0; i < arr.length; i++) {
+  arrTypes.push(typeof arr[i]);
+}
+
+console.log(arrTypes);
+
+// continue and break
+
+// only strings
+for (let i = 0; i < arr.length; i++) {
+  if (typeof arr[i] !== 'string') continue;
+  console.log(arr[i]);
+}
+// continue and break
+
+// break with number
+for (let i = 0; i < arr.length; i++) {
+  if (typeof arr[i] === 'number') break;
+  console.log(arr[i]);
+}
+
 */
