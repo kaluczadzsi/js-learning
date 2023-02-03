@@ -45,4 +45,43 @@ Generated during 'Creation phase', right before execution -> {
 
 ARROW FUNCTIONS: NO ARGUMENTS KEYWORD, NO THIS KEYWORD!!
 
+------------------------------------------------------------------------
+
+SCOPE AND THE SCOPE CHAIN
+
+There is global scope, function scope, and block scope
+
+GLOBAL:
+
+  outside of any functions or block
+  accessible everywhere
+
+  const job = 'teacher'
+
+FUNCTION:
+
+  variables are accessible only inside function, NOT outside
+  also called local scope
+
+  function calcAge(birthYear) {
+    const now = 2023;
+  }
+  
+  console.log(now); // ReferenceError
+
+BLOCK:
+
+  variables are accessible only inside block (block scoped)
+  HOWEVER, this only applies to let and const variables!
+  Functions are also block scoped (only in strict mode)
+
+  if(year > 2000) {
+    const x = 10;
+  }
+
+  console.log(x); // ReferenceError
+
+  let, const -> block scoped
+  var -> function scoped
+
 */
