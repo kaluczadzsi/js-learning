@@ -84,9 +84,9 @@ BLOCK:
   let, const -> block scoped
   var -> function scoped
 
-*/
+  Scoping in practise
 
-function calcAge(birthYear) {
+  function calcAge(birthYear) {
   const age = 2023 - birthYear;
 
   function printAge() {
@@ -118,3 +118,36 @@ const firstName = 'Jonas';
 calcAge(1994);
 // console.log(age); cannot access
 // printAge(); cannot access
+
+------------------------------------------------------------------------
+
+HOISTING AND TDZ
+
+TDZ: TEMPORARY DEAD ZONE
+
+Hoisting: Makes some types of variables accessible/usable
+ in the code before they are actually declared.
+"Variables lifted to the top of their scope."
+
+Before execution, code is scanned for variable declarations,
+and for each variable, a new property is created in 
+VARIABLE ENVIROMENT OBJECT.
+
+HOISTED, INITIAL VALUE, SCOPE?
+
+function declarations:          y, Actual function, BLOCK (in strict mode, otherwise: function)
+var variables:                  y, undefined, FUNCTION
+let and const variables:        n, (uninitalized,TDZ,) BLOCK
+
+function expression and arrows: DEPENDS VAR OR LET:
+With var: hoisted to undefined,
+With let or const: not useable before declaration
+
+
+WHY TDZ?
+
+  Makes it easier to avoid and catch errors:
+  accessing variables before declaration is bad practise and should be avoided;
+
+  Makes const variables actually work
+*/
