@@ -217,5 +217,48 @@ THIS KEYWORD
       document.querySelector('h1').addEventListener('mouseover', function test() {
       console.log(this);
     });
-  
+
+THIS KEYWORD IN PRACTISE
+
+    console.log(this); // Window
+
+  const calcAge = function (birthYear) {
+    console.log(2037 - birthYear);
+    console.log(this); // undefined
+  };
+  calcAge(1991);
+
+  const calcAgeArrow = birthYear => {
+    console.log(2037 - birthYear);
+    console.log(this); // Window (parent scope)
+  };
+  calcAgeArrow(1991);
+
+  const jonas = {
+    birthYear: 1991,
+    calcAge() {
+      console.log(this);
+      console.log(2037 - this.birthYear);
+    },
+  };
+
+  jonas.calcAge(); 
+
+    const jonas = {
+    year: 1991,
+    calcAge() {
+      console.log(this);
+      console.log(2037 - this.year);
+      // This keyword points to the object
+      // that is calling the method
+    },
+  };
+
+  const matilda = {
+    year: 2017,
+  };
+
+  // Method borrowing
+  matilda.calcAge = jonas.calcAge;
+  matilda.calcAge();
 */
