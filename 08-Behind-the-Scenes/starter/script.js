@@ -261,4 +261,54 @@ THIS KEYWORD IN PRACTISE
   // Method borrowing
   matilda.calcAge = jonas.calcAge;
   matilda.calcAge();
+
+------------------------------------------------------------------------
+
+  REGULAR FUNCTIONS VS ARROW FUNCTIONS
+
+  const jonas = {
+  firstName: 'Jonas',
+  year: 1991,
+  calcAge() {
+    console.log(this);
+    console.log(2037 - this.year);
+
+    /* SOLUTION 1:
+
+    const self = this; // jonas
+    const isMillenial = function () {
+    console.log(this); //undefined
+    console.log(self.year >= 1981 && self.year <= 1996);
+    };
+
+        // SOLUTION 2
+        const isMillenial = () => {
+          // ARROW FUNCTION INHERITS THIS KEYWORD FROM PARENT SCOPE
+          console.log(this.year >= 1981 && this.year <= 1996);
+        };
+        isMillenial();
+      },
+
+      greet: () => {
+        console.log(`Hey ${this}`);
+        //Arrow function does not get his own this keyword
+      },
+    };
+
+    jonas.calcAge();
+
+      // Arguments
+      const addExpr = function (a, b) {
+        // ARGUMENST ARRAY
+        console.log(arguments);
+        return a + b;
+        0;
+      };
+
+      addExpr(2, 5, 8, 9);
+      var addArrow = (a, b) => {
+        // THERE IS NO ARGUMENTS ARRAY
+        console.log(arguments);
+        return a + b;
+      };
 */
