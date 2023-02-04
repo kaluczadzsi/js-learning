@@ -183,4 +183,39 @@ HOISTING AND TDZ IN PRACTISE
   function deleteShoppingCart() {
     console.log('All products deleted!');
   }
+
+------------------------------------------------------------------------
+
+THIS KEYWORD
+
+  method: this = <Object that is calling the method>
+
+    const jonas = {
+    age: 28,
+    getAge: function () {
+      console.log(this);
+      return this.age;
+      //jonas.age
+    },
+  };
+
+  simple function call: this = undefined (in strict mode, otherwise window)
+
+      function test() {
+      console.log(this);
+    }
+
+    test();
+
+    arrow function call: this = <this of surronding funcion(lexical this)ű
+    (ARROW FUNCTIONS DO NOT GET THEIR OWN THIS KEYWORD)
+
+
+
+    Event Listener: this = <DOM ELEMENT that the handler is attached to>
+
+      document.querySelector('h1').addEventListener('mouseover', function test() {
+      console.log(this);
+    });
+  
 */
