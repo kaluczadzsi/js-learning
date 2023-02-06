@@ -20,6 +20,10 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
   },
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  },
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
@@ -193,7 +197,9 @@ REST OPERATOR
 
 spread operator -> unpack an array 
 rest operator -> pack into an array 
-*/
+
+
+// 1) DESTRUCTURING PART
 
 // SPREAD, because on RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
@@ -203,9 +209,38 @@ console.log(arr);
 const [a, b, ...rest] = [1, 2, 3, 4, 5];
 console.log(a, b, rest);
 
+// REST element always must be the last
 const [pizza, , risotto, ...otherFood] = [
   ...restaurant.mainMenu,
   ...restaurant.starterMenu,
 ];
 
 console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat);
+console.log(weekdays);
+
+// 2) FUNCTIONS
+
+const add = function (...numbers) {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3); // [2, 3]
+add(4, 5, 9, 12); // [4, 5, 9, 12]
+add(7, 8);
+
+const x = [23, 5, 7]; // 23, 5, 7
+
+add(...x);
+
+restaurant.orderPizza('mushroom', 'onion', 'olives');
+restaurant.orderPizza('Spinach');
+
+*/
