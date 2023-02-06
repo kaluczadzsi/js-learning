@@ -17,6 +17,9 @@ const restaurant = {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
+  orderPasta: function (ing1, ing2, ing3) {
+    console.log(`Here is your delicious pasta with ${ing1}, ${ing2}, ${ing3}`);
+  },
   orderDelivery: function ({
     starterIndex = 1,
     mainIndex = 0,
@@ -91,7 +94,7 @@ console.log(p, q, r);
 DESTRUCTURING OBJECTS
 variable names must match with property names!
 
-*/
+
 
 // SAME PROPERTY NAMES
 const { name, openingHours, categories } = restaurant;
@@ -135,3 +138,52 @@ restaurant.orderDelivery({
   adress: 'Via del Sole, 21',
   mainIndex: 2,
 });
+
+-----------------------------------------------------------------------------
+
+SPREAD OPERATOR
+
+const arr = [7, 8, 9];
+const badNewArray = [1, 2, arr[0], arr[1], arr[2]];
+console.log(badNewArray);
+
+const goodNewArray = [1, 2, ...arr]; // [1, 2, 7, 8, 9]
+console.log(...goodNewArray); // SAME
+console.log(1, 2, 7, 8, 9); // SAME
+
+const newMenu = [...restaurant.mainMenu, 'Gnocci'];
+console.log(...newMenu);
+
+// Copy array (shallow)
+const mainMenuCopy = [...restaurant.mainMenu];
+
+// Join 2 arrays
+const menu = [...restaurant.mainMenu, ...restaurant.starterMenu];
+console.log(menu);
+
+// Iterables: arrays, strings, maps, sets, NOT objects
+const str = 'Jonas';
+const letters = [...str, ' ', 'S']; // ['J', 'o', 'n', 'a', 's']
+console.log(letters);
+console.log(...str); // SAME
+console.log('J', 'o', 'n', 'a', 's'); // SAME
+/* 
+const ingredients = [
+  prompt("Let's make a pasta! Ingredient 1?"),
+  prompt('Ingredient 2?'),
+  prompt('Ingredient 3?'),
+];
+console.log(ingredients);
+
+restaurant.orderPasta(...ingredients); // SAME
+restaurant.orderPasta(ingredients[0], ingredients[1], ingredients[2]); // SAME 
+
+// Objects
+const newRestaurant = { foundedIn: 1997, ...restaurant, founder: 'Guiseppe' };
+
+// Shallow copy
+const restaurantCopy = { ...restaurant };
+restaurantCopy.name = 'Ristorante Roma';
+console.log(restaurantCopy);
+console.log(restaurant);
+*/
