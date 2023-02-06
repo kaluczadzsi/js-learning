@@ -186,4 +186,26 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy);
 console.log(restaurant);
+
+-----------------------------------------------------------------------------
+
+REST OPERATOR
+
+spread operator -> unpack an array 
+rest operator -> pack into an array 
 */
+
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+console.log(arr);
+
+// REST, because on LEFT side of =
+const [a, b, ...rest] = [1, 2, 3, 4, 5];
+console.log(a, b, rest);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFood);
