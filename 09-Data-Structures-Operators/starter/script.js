@@ -244,17 +244,3 @@ restaurant.orderPizza('mushroom', 'onion', 'olives');
 restaurant.orderPizza('Spinach');
 
 */
-
-function logRest(a, b, ...rest) {
-  if (!rest.length) {
-    console.log('rest is empty');
-  } else {
-    console.log(`Rest parameters: ${Array.isArray(rest)}`);
-    console.log(rest);
-    console.log(`a: ${a}`);
-    console.log(`b: ${b}`);
-  }
-}
-
-// logRest(11, 33);
-logRest('47', 'alma', 'Kispiszok', 'Whatever');
