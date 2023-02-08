@@ -281,7 +281,6 @@ restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
 -----------------------------------------------------------------------------
 
 NULLISH COALESCING OPERATOR (??)
-*/
 
 // 0 is falsy value
 // restaurant.numGuests = 0;
@@ -291,3 +290,40 @@ console.log(numGuests); // 10
 // Nullish: null and undefined (NOT 0 or '')
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect); // 0
+
+-----------------------------------------------------------------------------
+
+LOGICAL ASSIGMENT OPERATORS
+
+const rest1 = {
+  name: 'Capri',
+  // numGuests: 20,
+  numGuests: 0,
+};
+
+const rest2 = {
+  name: 'La Piazza',
+  owner: 'Giovanni Rossi',
+};
+
+// || OR assigment
+// Adding numGuests property to the objects
+// that do not have them.
+rest2.numGuests = rest1.numGuests || 10; // 20 - first value truthy
+rest2.numGuests = rest2.numGuests || 10; // 10 - second value truthy
+
+// SAME AS rest1.numGuests = rest1.numGuests || 10;
+// rest1.numGuests ||= 10;
+// rest2.numGuests ||= 10;
+
+// nullish assigment operator (null or undefined)
+// rest1.numGuests ??= 10; // 0
+// rest2.numGuests ??= 10; // 10
+
+rest1.owner &&= '<ANONYMOUS>';
+// SAME AS rest2.owner = rest2.owner && '<ANONYMOUS>';
+rest2.owner &&= '<ANONYMOUS>';
+
+console.log(rest1);
+console.log(rest2);
+*/
