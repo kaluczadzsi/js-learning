@@ -247,7 +247,6 @@ restaurant.orderPizza('Spinach');
 
 SHORT CIRCUITING (&& and ||)
 
-*/
 // Use ANY data type, return ANY data type, short-circuiting
 // || if the first operand is truthy, other operand will not evaluated!
 
@@ -278,3 +277,17 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
+
+-----------------------------------------------------------------------------
+
+NULLISH COALESCING OPERATOR (??)
+*/
+
+// 0 is falsy value
+// restaurant.numGuests = 0;
+const numGuests = restaurant.numGuests || 10;
+console.log(numGuests); // 10
+
+// Nullish: null and undefined (NOT 0 or '')
+const guestCorrect = restaurant.numGuests ?? 10;
+console.log(guestCorrect); // 0
