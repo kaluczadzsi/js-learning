@@ -250,4 +250,9 @@ SHORT CIRCUITING (&& and ||)
 */
 // Use ANY data type, return ANY data type, short-circuiting
 // if the first operand is truthy, other operand will not evaluated!
-console.log(3 || 'gabor'); // 3
+
+// Guess the results!
+console.log(3 || 'Gabor'); // 3
+console.log('' || 'Gabor'); // Gabor
+console.log(true || 0); // True
+console.log(undefined || null); // null
