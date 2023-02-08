@@ -256,3 +256,9 @@ console.log(3 || 'Gabor'); // 3
 console.log('' || 'Gabor'); // Gabor
 console.log(true || 0); // True
 console.log(undefined || null); // null
+
+// first truthy value is 'Hello'
+console.log(undefined || 0 || '' || 'Hello' || 23 || null);
+
+const guests1 = restaurant.numGuests || 10; // 10
+console.log(guests1);
