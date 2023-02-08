@@ -249,11 +249,12 @@ SHORT CIRCUITING (&& and ||)
 
 */
 // Use ANY data type, return ANY data type, short-circuiting
-// if the first operand is truthy, other operand will not evaluated!
+// || if the first operand is truthy, other operand will not evaluated!
 
 // Guess the results!
-console.log(3 || 'Gabor'); // 3
-console.log('' || 'Gabor'); // Gabor
+console.log('---- OR ----');
+console.log(3 || 'gabor'); // 3
+console.log('' || 'gabor'); // gabor
 console.log(true || 0); // True
 console.log(undefined || null); // null
 
@@ -262,3 +263,18 @@ console.log(undefined || 0 || '' || 'Hello' || 23 || null);
 
 const guests1 = restaurant.numGuests || 10; // 10
 console.log(guests1);
+
+console.log('---- AND ----');
+// && AND operator short circuits when the first value is falsy
+console.log(0 && 'gabor'); // 0
+console.log('' && true); // ''
+console.log(7 && 'gabor'); // Gabor (last value is returned)
+
+console.log('Hello' && 23 && null && 'gabor'); // null
+
+// Checking if this method exists
+if (restaurant.orderPizza) {
+  restaurant.orderPizza('mushrooms', 'spinach');
+}
+
+restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
