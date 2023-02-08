@@ -243,4 +243,11 @@ add(...x);
 restaurant.orderPizza('mushroom', 'onion', 'olives');
 restaurant.orderPizza('Spinach');
 
+-----------------------------------------------------------------------------
+
+SHORT CIRCUITING (&& and ||)
+
 */
+// Use ANY data type, return ANY data type, short-circuiting
+// if the first operand is truthy, other operand will not evaluated!
+console.log(3 || 'gabor'); // 3
