@@ -32,7 +32,14 @@ const restaurant = {
 
   // ES6 enhanced object literals
   openingHours,
-  order: function (starterIndex, mainIndex) {
+
+  // OLD WAY
+  // order: function (starterIndex, mainIndex) {
+  //   return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  // },
+
+  // NEW WAY OF WRITING METHODS
+  order(starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
 
