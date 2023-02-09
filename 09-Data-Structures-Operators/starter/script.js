@@ -8,8 +8,10 @@ Data needed for a later exercise
 // Data needed for first part of the section
 */
 
+const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
 const openingHours = {
-  thu: {
+  [weekdays[3]]: {
     open: 12,
     close: 22,
   },
@@ -17,7 +19,8 @@ const openingHours = {
     open: 11,
     close: 23,
   },
-  sat: {
+  // [`day + ${2 + 2}`]:
+  fri: {
     open: 0, // Open 24 hours
     close: 24,
   },
