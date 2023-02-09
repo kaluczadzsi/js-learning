@@ -356,7 +356,6 @@ operator.
 Test data for 6.: First, use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'.
 Then, call the function again with players from game.scored
 GOOD LUCK
-*/
 
 const game = {
   team1: 'Bayern Munich',
@@ -427,3 +426,5 @@ printGoals('Davies', 'Muller', 'Lewandowski', 'Kimmich');
 printGoals(...game.scored);
 // 7.
 const a = team1 < team2 && console.log('Team 1 is more likely to win'); // first value is true, then continues operation
+
+*/
