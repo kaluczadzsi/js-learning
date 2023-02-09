@@ -437,3 +437,7 @@ const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
 for (const item of menu) {
   console.log(item);
 }
+
+for (const [key, value] of menu.entries()) {
+  console.log(`${key + 1}: ${value}`);
+}
