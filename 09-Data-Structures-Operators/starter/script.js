@@ -427,4 +427,13 @@ printGoals(...game.scored);
 // 7.
 const a = team1 < team2 && console.log('Team 1 is more likely to win'); // first value is true, then continues operation
 
+-----------------------------------------------------------------------------
+
+FOR OF LOOP
 */
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+// we can still use continue, break
+for (const item of menu) {
+  console.log(item);
+}
