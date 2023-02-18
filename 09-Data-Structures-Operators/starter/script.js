@@ -488,4 +488,34 @@ console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
 const users = [{ name: 'Jonas', email: 'hello@jonas.io' }, {}];
 
 console.log(users[1]?.name ?? 'empty');
+
+-----------------------------------------------------------------------------
+
+LOOPING OBJECTS: OBJECT KEYS, VALUES, AND ENTRIES
 */
+
+// Property NAMES
+const properties = Object.keys(openingHours);
+console.log(properties); // Returns an array: ['thu', 'fri', 'sat']
+let openStr = `We are open on ${properties.length} days: `;
+for (const day of properties) {
+  openStr += `${day}, `;
+}
+console.log(openStr);
+
+// Property VALUES
+
+const values = Object.values(openingHours);
+console.log(values); //returns an  array: [{open:12, close: 10}, {etc}, {etc}];
+
+for (const value of values) {
+  console.log(value);
+}
+
+// Entire Object
+const entries = Object.entries(openingHours);
+console.log(entries); // [Array(2), Array(2), Array(2)]
+
+for (const [key, { open, close }] of entries) {
+  console.log(`On ${key} we open at ${open} and ${close} at  ${close}}`);
+}
