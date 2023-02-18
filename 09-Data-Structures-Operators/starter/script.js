@@ -20,7 +20,7 @@ const openingHours = {
     close: 23,
   },
   // [`day + ${2 + 2}`]:
-  fri: {
+  sat: {
     open: 0, // Open 24 hours
     close: 24,
   },
@@ -181,7 +181,7 @@ console.log(menu);
 
 // Iterables: arrays, strings, maps, sets, NOT objects
 const str = 'Jonas';
-const letters = [...str, ' ', 'S']; // ['J', 'o', 'n', 'a', 's']
+const letters = [...str, ' ', 'S']; // ['J', 'o', 'n', 'a', 'S']
 console.log(letters);
 console.log(...str); // SAME
 console.log('J', 'o', 'n', 'a', 's'); // SAME
@@ -459,4 +459,33 @@ for (const [key, value] of menu.entries()) {
 -----------------------------------------------------------------------------
 
 ENHANCED OBJECT LITERALS
+
+-----------------------------------------------------------------------------
+
+OPTIONAL CHAINING (?.)
+
+if (restaurant.openingHours && restaurant.openingHours.mon) {
+  console.log(restaurant.openingHours.mon.open);
+}
+// console.log(restaurant.openingHours.mon.open); // undefined.open
+
+// WITH OPTIONAL CHAINING
+console.log(restaurant.openingHours.mon?.open);
+console.log(restaurant.openingHours?.mon?.open);
+
+const days = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? 'closed';
+  console.log(`On ${day} we open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? 'Method does not exitst');
+console.log(restaurant.orderRisotto?.(0, 1) ?? 'Method does not exist');
+
+// Arrays
+const users = [{ name: 'Jonas', email: 'hello@jonas.io' }, {}];
+
+console.log(users[1]?.name ?? 'empty');
 */
