@@ -760,7 +760,6 @@ average, every 9 minutes" (keep in mind that a game has 90 minutes)
 4. Loop over 'gameEvents' and log each element to the console, marking
 whether it's in the first half or second half (after 45 min) of the game, like this:
 [FIRST HALF] 17: ⚽ GOAL
-*/
 
 const gameEvents = new Map([
   [17, '⚽ GOAL'],
@@ -802,3 +801,46 @@ for (const [key, value] of gameEvents) {
 
   console.log(str);
 }
+
+-----------------------------------------------------------------------------
+
+WORKING WITH STRINGS
+
+const airline = 'TAP Air Portugal';
+const plane = 'A320';
+
+console.log(plane.length); // 4
+console.log(plane[0]); // A
+
+// Methods
+console.log(plane.indexOf('3')); // 1
+console.log(airline.indexOf('r')); // 6
+console.log(airline.lastIndexOf('r')); // 10
+console.log(airline.indexOf('Air')); // 4
+
+console.log(airline.slice(4)); // Air Portugal (4 is begin parameter)
+console.log(airline.slice(4, 7)); // Air
+
+console.log(airline.slice(0, airline.indexOf(' '))); // TAP
+console.log(airline.slice(airline.lastIndexOf(' ') + 1)); // Portugal
+
+console.log(airline.slice(-2)); // al (last two letters)
+console.log(airline.slice(1, -1)); // AP Air Portuga
+
+const checkMiddleSeat = function (seat) {
+  // B and E are middle seats
+  const s = seat.slice(-1);
+  if (s == 'B' || s == 'E') {
+    console.log('You got the middle seat 😭');
+  } else {
+    console.log('You got lucky 😊');
+  }
+};
+
+checkMiddleSeat('11B');
+checkMiddleSeat('23C');
+checkMiddleSeat('3E');
+
+console.log(new String('jonas')); // Object
+
+*/
