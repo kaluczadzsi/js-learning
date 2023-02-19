@@ -662,4 +662,52 @@ console.log(
 );
 
 console.log(new Set('ababab')); // a, b
+
+-----------------------------------------------------------------------------
+
+MAPS (KEY, VALUE) PAIRS
+keys can be any type!
+
+map.set => returnes updated map, so we can call set again that map
+
+const rest = new Map();
+rest.set('name', 'Classico Italiano'); // Like add in sets
+rest.set(1, 'Firenze, Italy');
+
+console.log(rest.set(2, 'Lisbon, Portugal'));
+rest
+  .set('categories', ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'])
+  .set('open', 11)
+  .set('close', 23)
+  .set(true, 'We are open :D')
+  .set(false, 'We are closed :(');
+
+// Read data .get
+
+console.log(rest.get('name')); // Classico Italiano
+console.log(rest.get(true)); // 'We are open :D'
+console.log(rest.get(1));
+
+// Boolean as a map key
+const time = 10; // 9 PM
+console.log(rest.get(time > rest.get('open') && time < rest.get('close')));
+
+// check certain key
+console.log(rest.has('categories')); // true
+
+rest.delete(2);
+console.log(rest);
+console.log(rest.size);
+// rest.clear();
+// console.log(rest);
+
+const arr = [1, 2];
+rest.set([1, 2], 'Test');
+rest.set(arr, 'Test 2');
+console.log(rest);
+console.log(rest.get([1, 2])); // NOT THE SAME AS -> rest.set([1, 2], 'Test');
+console.log(rest.get(arr)); // Test 2
+rest.set(document.querySelector('h1'), 'Heading');
+console.log(rest);
+
 */
