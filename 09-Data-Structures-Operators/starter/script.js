@@ -628,4 +628,38 @@ const scorers = {
 console.log(scorers);
 console.log('---------------------');
 
+-----------------------------------------------------------------------------
+
+SETS
+
+There is no indexes!
+
+const ordersSet = new Set(['Pasta', 'Pizza', 'Pizza', 'Risotto', 'Risotto']);
+console.log(ordersSet);
+
+console.log(new Set('Jonas'));
+
+console.log(ordersSet.size); // 3
+console.log(ordersSet.has('Pizza')); // True
+console.log(ordersSet.has('Bread')); // False
+ordersSet.add('Garlick Bread');
+ordersSet.add('Garlick Bread');
+ordersSet.delete('Garlick Bread');
+// ordersSet.clear(); // Delete all element
+console.log(ordersSet);
+
+for (const order of ordersSet) {
+  console.log(order);
+}
+
+// Example
+const staff = ['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter'];
+
+const staffUnique = [...new Set(staff)];
+console.log(staffUnique);
+console.log(
+  new Set(['Waiter', 'Chef', 'Waiter', 'Manager', 'Chef', 'Waiter']).size
+);
+
+console.log(new Set('ababab')); // a, b
 */
