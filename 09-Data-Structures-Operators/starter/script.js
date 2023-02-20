@@ -872,7 +872,6 @@ const [firstName, lastName] = 'Kalucza Gabor'.split(' ');
 const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName);
 
-*/
 const passenger = 'jessica ann smith davis';
 
 const capitalizeName = function (name) {
@@ -888,3 +887,20 @@ const capitalizeName = function (name) {
 
 console.log(capitalizeName('John doe'));
 console.log(capitalizeName('sAMuEl Jackson'));
+*/
+
+// Padding
+const message = 'Go to gate 23!';
+console.log(message.padStart(25, ' '));
+console.log('Jonas'.padStart(25, '+'));
+console.log('Gabor'.padEnd(25, '-').padStart(35, '+'));
+
+const maskCreditCard = function (number) {
+  const str = number + '';
+  const last4digit = str.slice(-4);
+  return last4digit.padStart(str.length, '*');
+};
+
+console.log(maskCreditCard(5559458512));
+console.log(maskCreditCard(14665822988541195));
+console.log(maskCreditCard(44685985));
