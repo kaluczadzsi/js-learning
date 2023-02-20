@@ -887,7 +887,6 @@ const capitalizeName = function (name) {
 
 console.log(capitalizeName('John doe'));
 console.log(capitalizeName('sAMuEl Jackson'));
-*/
 
 // Padding
 const message = 'Go to gate 23!';
@@ -904,3 +903,16 @@ const maskCreditCard = function (number) {
 console.log(maskCreditCard(5559458512));
 console.log(maskCreditCard(14665822988541195));
 console.log(maskCreditCard(44685985));
+
+// Repeat
+const message = 'Bad weather... All departures delayed... ';
+console.log(message.repeat(5));
+
+const planesInLine = function (n) {
+  console.log(`The are ${n} planes in a line ${'✈️'.repeat(n)}`);
+};
+
+planesInLine(5);
+planesInLine(15);
+
+*/
