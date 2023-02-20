@@ -843,4 +843,33 @@ checkMiddleSeat('3E');
 
 console.log(new String('jonas')); // Object
 
+const airline = 'TAP Air Portugal';
+console.log(airline.toLowerCase());
+console.log(airline.toUpperCase());
+
+const passenger = 'doNalD';
+const correct =
+  passenger.toUpperCase()[0] + passenger.slice(1).toLocaleLowerCase();
+console.log(correct);
+
+const email = '     gabOr@io.com   \n';
+const correctEmail = email.toLowerCase().trim();
+console.log(correctEmail);
+
+// replacing
+const price = '288,97€';
+const priceUS = price.replace(',', '.').replace('€', '$');
+console.log(priceUS);
+
+const plane = 'A320neo';
+console.log(plane.includes('neo')); // true
+console.log(plane.startsWith('A32')); // true
+
+console.log('a+very+nice+string'.split('+')); // return array ['a','very','nice','string']
+console.log('Kalucza Gabor'.split(' ')); // ['Kalucza', 'Gabor']
+
+const [firstName, lastName] = 'Kalucza Gabor'.split(' ');
+const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
+console.log(newName);
+
 */
