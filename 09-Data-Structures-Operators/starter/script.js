@@ -873,3 +873,18 @@ const newName = ['Mr.', firstName, lastName.toUpperCase()].join(' ');
 console.log(newName);
 
 */
+const passenger = 'jessica ann smith davis';
+
+const capitalizeName = function (name) {
+  const capitalized = name.split(' ');
+  const namesUpper = [];
+
+  for (const word of capitalized) {
+    namesUpper.push(word[0].toUpperCase() + word.slice(1).toLowerCase());
+  }
+
+  return namesUpper.join(' ');
+};
+
+console.log(capitalizeName('John doe'));
+console.log(capitalizeName('sAMuEl Jackson'));
