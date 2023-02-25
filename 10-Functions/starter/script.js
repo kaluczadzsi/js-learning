@@ -59,4 +59,38 @@ checkIn(flight, passenger);
 console.log(passenger);
 
 ----------------------------------------
+
+FIRST CLASS AND HIGHER ORDER FUNCTIONS
+
+addEventListener is a higher order function (Bcs it recieves a function as input)
+callback function is a function that is passed as an argument
 */
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [first, ...others] = str.split(' ');
+  return [first.toUpperCase(), ...others].join(' ');
+};
+
+// Higher-order function
+const transformer = function (str, fn) {
+  console.log(`Transformed by: ${fn.name}`);
+  return fn(str);
+};
+
+console.log(transformer('JavaScript is the best!', upperFirstWord));
+console.log(transformer('JavaScript is the best!', oneWord));
+
+// JS uses callbacks all the time
+const high5 = function () {
+  console.log('👋');
+};
+
+// addEventListener -> higher-order function
+// hight5 -> callback function
+document.body.addEventListener('click', high5);
+
+['Jonas', 'Martha', 'Adam'].forEach(high5);
