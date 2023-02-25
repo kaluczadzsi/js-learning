@@ -64,7 +64,6 @@ FIRST CLASS AND HIGHER ORDER FUNCTIONS
 
 addEventListener is a higher order function (Bcs it recieves a function as input)
 callback function is a function that is passed as an argument
-*/
 
 const oneWord = function (str) {
   return str.replace(/ /g, '').toLowerCase();
@@ -94,3 +93,24 @@ const high5 = function () {
 document.body.addEventListener('click', high5);
 
 ['Jonas', 'Martha', 'Adam'].forEach(high5);
+
+----------------------------------------
+
+FUNCTIONS RETURNING FUNCTIONS
+*/
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey'); // result is the inner function
+
+greeterHey('Tom'); // Hey Tom
+greeterHey('Steven'); // Hey Steven
+
+greet('Hello')('Jonas'); // Hello Jonas
+
+// With arrow function
+const greet2 = greet => name => console.log(`${greet} ${name}`);
