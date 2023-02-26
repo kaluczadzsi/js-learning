@@ -246,7 +246,6 @@ Test data for bonus:
 § Data 2: [1, 5, 3, 9, 6, 1]
 Hints: Use many of the tools you learned about in this and the last section 
 GOOD LUCK 
-*/
 
 const poll = {
   question: 'What is your favourite programming language?',
@@ -286,7 +285,7 @@ What is your favourite programming language?
 1: Python
 2: Rust
 3: C++
-(Write option number) */
+(Write option number) 
 
 poll.registerNewAnswer();
 
@@ -294,7 +293,7 @@ poll.registerNewAnswer();
 example, if the option is 3, increase the value at position 3 of the array by
 1. Make sure to check if the input is a number and if the number makes
 sense (e.g. answer 52 wouldn't make sense, right?)
-2. Call this method whenever the user clicks the "Answer poll" button. */
+2. Call this method whenever the user clicks the "Answer poll" button. 
 
 document
   .querySelector('.poll')
@@ -304,4 +303,86 @@ document
 method takes a string as an input (called 'type'), which can be either 'string'
 or 'array'. If type is 'array', simply display the results array as it is, using
 console.log(). This should be the default option. If type is 'string', display a
-string like "Poll results are 13, 2, 4, 1". */
+string like "Poll results are 13, 2, 4, 1".
+
+poll.displayResults.call({ answers: [1, 2, 3] }, 'string');
+
+----------------------------------------
+
+IMMEDIATELY INVOKED FUNCTION EXPRESSIONS (IIFE)
+
+(function () {
+  console.log(`This will never run again`);
+  const isPrivate = 23; // Encapsulated inside of this function scope
+})();
+
+(() => console.log(`This will ALSO run again`))();
+
+{
+  const isPrivate = true;
+  var notPrivate = true;
+}
+
+console.log(notPrivate); // Accessible
+
+----------------------------------------
+
+CLOSURES
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+
+// EXAMPLE 1
+let f;
+
+const g = function () {
+  const a = 23;
+
+  f = function () {
+    console.log(a * 2);
+  };
+};
+
+const h = function () {
+  const b = 777;
+  f = function () {
+    console.log(b * 2);
+  };
+};
+
+g();
+f(); // 46
+
+// Re-assigning f function
+h();
+f(); //1554
+console.dir(f);
+
+// EXAMPLE 2
+const boardPassengers = function (n, wait) {
+  const perGroup = n / 3;
+
+  setTimeout(function () {
+    console.log(`We are now boarding all ${n}`);
+  }, wait * 1000);
+  console.log(`There are 3 groups, each with ${perGroup} passengers`);
+  console.log(`Will start boarding ${wait}
+  seconds`);
+};
+
+boardPassengers(180, 3);
+
+*/
