@@ -117,7 +117,6 @@ const greet2 = greet => name => console.log(`${greet} ${name}`);
 ----------------------------------------
 
 THE CALL AND APPLY AND BIND METHOD
-*/
 
 const lufthansa = {
   airline: 'Lufthansa',
@@ -148,7 +147,7 @@ const book = lufthansa.book;
 // regular function call THIS -> undefined
 // book(23, 'Sarah Williams'); // error
 book.call(eurowings, 23, 'Sarah Williams');
-/* Sarah Williams booked a seat on Eurowings flight EW23 */
+// Sarah Williams booked a seat on Eurowings flight EW23
 console.log(eurowings);
 
 book.call(lufthansa, 239, 'Mary Cooper');
@@ -169,3 +168,45 @@ book.apply(swiss, flightData);
 console.log(swiss);
 
 book.call(swiss, ...flightData); // SAME AS THIS
+
+// BIND METHOD
+
+const bookEW = book.bind(eurowings);
+const bookLH = book.bind(lufthansa);
+const bookLX = book.bind(swiss);
+
+// Return a new function, where
+//THIS keyword will be set to eurowings
+bookEW(449, 'Steven Williams');
+console.log(eurowings);
+
+const bookEW23 = book.bind(eurowings, 23);
+bookEW23('Peter Parker');
+console.log(eurowings);
+
+// With Event Listeners
+lufthansa.planes = 300;
+
+lufthansa.buyPlane = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+
+console.log(addVAT(5000));
+
+----------------------------------------
+
+
+*/
