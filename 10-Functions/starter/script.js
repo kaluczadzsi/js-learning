@@ -97,7 +97,6 @@ document.body.addEventListener('click', high5);
 ----------------------------------------
 
 FUNCTIONS RETURNING FUNCTIONS
-*/
 
 const greet = function (greeting) {
   return function (name) {
@@ -114,3 +113,59 @@ greet('Hello')('Jonas'); // Hello Jonas
 
 // With arrow function
 const greet2 = greet => name => console.log(`${greet} ${name}`);
+
+----------------------------------------
+
+THE CALL AND APPLY AND BIND METHOD
+*/
+
+const lufthansa = {
+  airline: 'Lufthansa',
+  iataCode: 'LH',
+  bookings: [],
+  book(flightNum, name) {
+    console.log(
+      `${name} booked a seat on ${this.airline} flight ${this.iataCode}${flightNum}`
+    );
+
+    this.bookings.push({ flight: `${this.iataCode}${flightNum}`, name });
+  },
+};
+
+lufthansa.book(239, 'Kalucza Gabor');
+lufthansa.book(239, 'John Smith');
+console.log(lufthansa);
+
+const eurowings = {
+  airline: 'Eurowings',
+  iataCode: 'EW',
+  bookings: [],
+};
+
+// CALL METHOD
+const book = lufthansa.book;
+
+// regular function call THIS -> undefined
+// book(23, 'Sarah Williams'); // error
+book.call(eurowings, 23, 'Sarah Williams');
+/* Sarah Williams booked a seat on Eurowings flight EW23 */
+console.log(eurowings);
+
+book.call(lufthansa, 239, 'Mary Cooper');
+console.log(lufthansa);
+
+const swiss = {
+  airline: 'Swiss Air Lines',
+  iataCode: 'LX',
+  bookings: [],
+};
+
+book.call(swiss, 115, 'Aizen Sousuke');
+console.log(swiss);
+
+// APPLY METHOD
+const flightData = [537, 'George Cooper']; // NOT USED OFTEN
+book.apply(swiss, flightData);
+console.log(swiss);
+
+book.call(swiss, ...flightData); // SAME AS THIS
