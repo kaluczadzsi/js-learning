@@ -74,3 +74,18 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+// SIMPLE ARRAY METHODS
+let arr = ['a', 'b', 'c', 'd', 'e'];
+
+// SLICE (NO MUTATE ORIGINAL ARRAY)
+console.log(arr);
+console.log(arr.slice(2)); // returns a new array (copy) // c, d, e
+console.log(arr.slice(2, 4)); // c, d   (4) is not included
+console.log(arr.slice(-2)); // from the end of the array // d, e
+console.log(arr.slice(-1)); // from the end of the array // last item e
+console.log(arr.slice(1, -2)); // b, c
+console.log(arr.slice()); // same array, SHALLOW COPY
+console.log([...arr]); // same array, SHALLOW COPY
+
+// SPLICE (MUTATE ORIGINAL ARRAYS)
