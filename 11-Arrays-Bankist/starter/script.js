@@ -79,6 +79,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
 // SLICE (NO MUTATE ORIGINAL ARRAY)
+console.log('-SLICE-');
 console.log(arr);
 console.log(arr.slice(2)); // returns a new array (copy) // c, d, e
 console.log(arr.slice(2, 4)); // c, d   (4) is not included
@@ -88,4 +89,24 @@ console.log(arr.slice(1, -2)); // b, c
 console.log(arr.slice()); // same array, SHALLOW COPY
 console.log([...arr]); // same array, SHALLOW COPY
 
-// SPLICE (MUTATE ORIGINAL ARRAYS)
+// SPLICE (MUTATE ORIGINAL ARRAYS !)
+console.log('-SPLICE-');
+console.log(arr);
+/* console.log(arr.splice(2)); // c, d, e
+console.log(arr); // Original array mutated to: ['a','b']
+console.log(arr.splice(-1)); // b 
+console.log(arr.splice(1, 2)); // b, c
+*/
+
+// REVERSE (MUTATE ORIGINAL ARRAY!)
+console.log('-REVERSE-');
+const arr2 = ['j', 'i', 'h', 'g', 'j'];
+console.log(arr2.reverse());
+console.log(arr2); //j, g, h, i, j
+
+// CONCAT
+const letters = arr.concat(arr2); // SAME
+const letters2 = [...arr, ...arr2]; // SAME
+
+// JOIN (CREATE STRING WITH SEPARATOR)
+console.log(letters.join('-')); // a-b-c-e-j-g-h-i-j
