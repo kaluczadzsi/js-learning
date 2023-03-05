@@ -74,7 +74,7 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
-
+/* 
 // SIMPLE ARRAY METHODS
 let arr = ['a', 'b', 'c', 'd', 'e'];
 
@@ -92,11 +92,11 @@ console.log([...arr]); // same array, SHALLOW COPY
 // SPLICE (MUTATE ORIGINAL ARRAYS !)
 console.log('-SPLICE-');
 console.log(arr);
-/* console.log(arr.splice(2)); // c, d, e
+console.log(arr.splice(2)); // c, d, e
 console.log(arr); // Original array mutated to: ['a','b']
 console.log(arr.splice(-1)); // b 
 console.log(arr.splice(1, 2)); // b, c
-*/
+
 
 // REVERSE (MUTATE ORIGINAL ARRAY!)
 console.log('-REVERSE-');
@@ -110,3 +110,18 @@ const letters2 = [...arr, ...arr2]; // SAME
 
 // JOIN (CREATE STRING WITH SEPARATOR)
 console.log(letters.join('-')); // a-b-c-e-j-g-h-i-j
+
+// at method
+// u can use method chaining with at method
+*/
+
+const arr = [23, 11, 64];
+console.log(arr[0]); // 23
+console.log(arr.at(0)); // 23
+
+console.log(arr[arr.length - 1]); // 64 (LAST ELEMENT)
+console.log(arr.slice(-1)[0]); // 64 (LAST ELEMENT)
+console.log(arr.at(-1)); // 64 (LAST ELEMENT)
+
+console.log('Gabor'.at(0)); // G
+console.log('Gabor'.at(-1)); // r
