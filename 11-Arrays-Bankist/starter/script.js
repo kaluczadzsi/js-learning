@@ -161,3 +161,11 @@ const currencies = new Map([
 currencies.forEach(function (value, key, map) {
   console.log(`${key}: ${value}`);
 });
+
+// Set
+const currenciesUnique = new Set(['USD', 'GBP', 'GBP', 'EUR', 'EUR', 'USD']);
+// value, key, set
+// key no makes sense ( there is no indexes in sets)
+currenciesUnique.forEach(function (value, key, set) {
+  console.log(`${value}: ${key}`);
+});
