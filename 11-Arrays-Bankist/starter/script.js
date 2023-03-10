@@ -169,3 +169,12 @@ const currenciesUnique = new Set(['USD', 'GBP', 'GBP', 'EUR', 'EUR', 'USD']);
 currenciesUnique.forEach(function (value, key, set) {
   console.log(`${value}: ${key}`);
 });
+
+const eurToUsd = 1.1;
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+
+console.log(movementsUSD);
