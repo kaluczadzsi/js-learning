@@ -233,6 +233,20 @@ const calcAverageHumanAge = ages => {
 console.log(calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]));
 
 -----------------------------------------------
+
+// EQUALITY
+console.log(movements.includes(-130));
+
+// SOME: CONDITION
+console.log(movements.some(mov => mov === -130));
+
+const anyDeposits = movements.some(mov => mov > 1500);
+console.log(anyDeposits);
+
+// EVERY
+console.log(movements.every(mov => mov > 0));
+
+
 */
 
 const account1 = {
@@ -265,17 +279,27 @@ const account4 = {
 
 const accounts = [account1, account2, account3, account4];
 
-// retrieve one element, return first element
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
-// EQUALITY
-console.log(movements.includes(-130));
+// const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+// // removing nesting ONLY ONE LEVEL DEEP
+// console.log(arr.flat()); // [1,2,3,4,5,6,7,8]
 
-// SOME: CONDITION
-console.log(movements.some(mov => mov === -130));
+// const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+// console.log(arrDeep.flat(2)); // we can add depth argument
 
-const anyDeposits = movements.some(mov => mov > 1500);
-console.log(anyDeposits);
+// const accountMovements = accounts.map(acc => acc.movements);
+// console.log(accountMovements);
 
-// EVERY
-console.log(movements.every(mov => mov > 0));
+// const allMovements = accountMovements.flat();
+// console.log(allMovements);
+
+// const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
+// console.log(overallBalance);
+
+const overallBalance2 = accounts
+  .map(acc => acc.movements)
+  .flat()
+  .reduce((acc, mov) => acc + mov, 0);
+
+console.log(overallBalance2);
