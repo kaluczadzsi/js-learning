@@ -297,9 +297,27 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // const overallBalance = allMovements.reduce((acc, mov) => acc + mov, 0);
 // console.log(overallBalance);
 
-const overallBalance2 = accounts
-  .map(acc => acc.movements)
-  .flat()
-  .reduce((acc, mov) => acc + mov, 0);
+// const overallBalance2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
 
-console.log(overallBalance2);
+// console.log(overallBalance2);
+
+console.log(movements);
+
+// return < 0, A, B
+// return > 0, B, A
+
+// movements.sort((a, b) => {
+//   // return a - b;
+//   if (a > b) {
+//     return 1;
+//   }
+//   if (b > a) {
+//     return -1;
+//   }
+// });
+
+// movements.sort((a, b) => a - b);
+
+// console.log(movements);
