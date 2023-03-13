@@ -303,7 +303,7 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 // console.log(overallBalance2);
 
-console.log(movements);
+// console.log(movements);
 
 // return < 0, A, B
 // return > 0, B, A
@@ -321,3 +321,18 @@ console.log(movements);
 // movements.sort((a, b) => a - b);
 
 // console.log(movements);
+// Empty arrays + fill method
+const arr = [1, 2, 3, 4, 5, 6, 7];
+console.log(new Array(1, 2, 3, 4, 5, 6, 7));
+
+const x = new Array(7);
+console.log(x); // empty x 7
+console.log(x.map(x => 5)); // empty x 7
+// x.fill(1);
+// console.log(x); // [1, 1, 1, 1, 1, 1, 1]
+
+x.fill(1, 3);
+console.log(x); // [empty × 3, 1, 1, 1, 1]
+
+arr.fill(23, 4, 6);
+console.log(arr); // [1, 2, 3, 4, 23, 23, 7]
