@@ -543,3 +543,9 @@ console.log(dogsCopy);
 
 // console.log(randomArray);
 // console.log(lastNElements(randomArray, 4));
+
+// Write a simple JavaScript program to join all elements of the following array into a string.
+const myColor = ['Red', 'Green', 'White', 'Black'];
+
+const colorString = myColor.join(', ');
+console.log(colorString);
