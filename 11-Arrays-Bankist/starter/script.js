@@ -447,7 +447,6 @@ lecture to choose between them
 current > (recommended * 0.90) && current < (recommended *
 1.10). Basically, the current portion should be between 90% and 110% of the
 recommended portion
-*/
 
 const dogs = [
   { weight: 22, curFood: 250, owners: ['Alice', 'Bob'] },
@@ -514,3 +513,18 @@ console.log(dogs.filter(checkEatingOkay));
 // 8.
 const dogsCopy = dogs.slice().sort((a, b) => a.recFood - b.recFood);
 console.log(dogsCopy);
+
+*/
+
+// 1. Write a JavaScript function to get the first element of an array. Passing a parameter 'n' will return the first 'n' elements of the array.
+// const firstNElements = function (arr, n) {
+//   return arr.slice(0, n);
+// };
+
+// const randomArray = [];
+
+// for (let i = 0; i <= 100; i++) {
+//   randomArray.push(Math.floor(Math.random() * 100 + 1));
+// }
+
+// console.log(firstNElements(randomArray, 4));
