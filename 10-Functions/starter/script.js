@@ -405,7 +405,7 @@ let changeColor = (function () {
   return function test() {
     header.style.color = 'blue';
   };
-})();
+})();s
 
 document.body.addEventListener('click', changeColor);
 
