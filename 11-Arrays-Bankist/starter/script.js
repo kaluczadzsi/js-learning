@@ -523,8 +523,23 @@ console.log(dogsCopy);
 
 // const randomArray = [];
 
-// for (let i = 0; i <= 100; i++) {
+// for (let i = 0; i < 100; i++) {
 //   randomArray.push(Math.floor(Math.random() * 100 + 1));
 // }
 
 // console.log(firstNElements(randomArray, 4));
+
+// 2. Write a JavaScript function to get the last element of an array. Passing a parameter 'n' will return the last 'n' elements of the array.
+
+// const randomArray = [];
+
+// for (let i = 0; i < 100; i++) {
+//   randomArray.push(Math.floor(Math.random() * 100 + 1));
+// }
+
+// const lastNElements = function (arr, n) {
+//   return arr.slice(-n);
+// };
+
+// console.log(randomArray);
+// console.log(lastNElements(randomArray, 4));
