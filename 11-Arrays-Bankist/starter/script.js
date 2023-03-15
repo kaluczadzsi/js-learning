@@ -545,7 +545,32 @@ console.log(dogsCopy);
 // console.log(lastNElements(randomArray, 4));
 
 // Write a simple JavaScript program to join all elements of the following array into a string.
-const myColor = ['Red', 'Green', 'White', 'Black'];
+// const myColor = ['Red', 'Green', 'White', 'Black'];
 
-const colorString = myColor.join(', ');
-console.log(colorString);
+// const colorString = myColor.join(', ');
+// console.log(colorString);
+
+// console.log(23 == 23.0);
+
+// // BASE 10 - 0 to 9
+// // Binary base 2 - 0 1
+// console.log(0.1 + 0.2);
+// console.log(0.1 + 0.2 === 0.3);
+
+// // Conversion
+// console.log(Number('23'));
+// console.log(+'23');
+
+// // Parsing
+// console.log(Number.parseInt('38px', 10));
+// console.log(Number.parseInt('px28', 10)); // NaN
+
+// console.log(Number.parseFloat('2.5rem'));
+
+// console.log(Number.isNaN('20'));
+// console.log(Number.isNaN(20));
+// console.log(Number.isNaN(+'20X'));
+// console.log(Number.isNaN(23 / 0));
+// console.log(Number.isFinite(20));
+// console.log(Number.isFinite(10 / 0));
+// console.log(Number.isFinite('20'));
