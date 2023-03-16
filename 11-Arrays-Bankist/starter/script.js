@@ -574,18 +574,53 @@ console.log(dogsCopy);
 // console.log(Number.isFinite(20));
 // console.log(Number.isFinite(10 / 0));
 // console.log(Number.isFinite('20'));
-console.log(Math.sqrt(25)); // 5
-console.log(25 ** (1 / 2)); // 5
+// console.log(Math.sqrt(25)); // 5
+// console.log(25 ** (1 / 2)); // 5
 
-console.log(Math.max(10, 20, 100, 3)); // 100
-console.log(Math.min(10, 20, 100, 3)); // 3
+// console.log(Math.max(10, 20, 100, 3)); // 100
+// console.log(Math.min(10, 20, 100, 3)); // 3
 
-console.log(Math.PI * Number.parseFloat('10px') ** 2);
+// console.log(Math.PI * Number.parseFloat('10px') ** 2);
 
-console.log(Math.trunc(Math.random() * 6 + 1));
+// console.log(Math.trunc(Math.random() * 6 + 1));
 
-const randomInt = (min, max) =>
-  Math.trunc(Math.random() * (max - min) + 1) + min;
-console.log(randomInt(20, 30));
+// const randomInt = (min, max) =>
+//   Math.floor(Math.random() * (max - min) + 1) + min;
+// console.log(randomInt(20, 30));
 
-// Rounding integers
+// // Rounding integers
+// console.log(Math.trunc(29.33333));
+// console.log(Math.round(22.9)); // 23
+// console.log(Math.round(22.1)); // 22
+// // CEIL ROUNDING UP
+// console.log(Math.ceil(22.9)); // 23
+// console.log(Math.ceil(22.1)); // 23
+// // FLOOR ROUNDING DOWN
+// console.log(Math.floor(22.9)); // 22
+// console.log(Math.floor(22.1)); // 22
+// console.log(Math.trunc(-23.3)); // 23
+// console.log(Math.floor(-23.3)); // 24
+
+// // Rounding decimals
+// console.log((2.7).toFixed(0)); // 3, toFixed return string
+// console.log((2.7).toFixed(3)); // 2.700
+// console.log(+(2.345).toFixed(2)); // 2.35
+
+// REMAINDER
+// console.log(5 % 2); // 1
+// console.log(5 / 2); // 2.5
+// console.log(6 % 3); // 0
+
+// const isEven = n => n % 2 === 0;
+
+// console.log(isEven(1)); // false
+// console.log(isEven(2)); // true
+
+// Numeric separators
+const diameter = 287_4685_441;
+console.log(diameter);
+
+const price = 345_19;
+console.log(price);
+
+console.log(Number('230_000')); // NaN
