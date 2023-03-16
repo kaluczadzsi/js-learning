@@ -7,7 +7,7 @@
 // Data
 const account1 = {
   owner: 'Jonas Schmedtmann',
-  movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
+  movements: 200, 450, -400, 3000, -650, -130, 70, 1300],
   interestRate: 1.2, // %
   pin: 1111,
 };
@@ -574,3 +574,18 @@ console.log(dogsCopy);
 // console.log(Number.isFinite(20));
 // console.log(Number.isFinite(10 / 0));
 // console.log(Number.isFinite('20'));
+console.log(Math.sqrt(25)); // 5
+console.log(25 ** (1 / 2)); // 5
+
+console.log(Math.max(10, 20, 100, 3)); // 100
+console.log(Math.min(10, 20, 100, 3)); // 3
+
+console.log(Math.PI * Number.parseFloat('10px') ** 2);
+
+console.log(Math.trunc(Math.random() * 6 + 1));
+
+const randomInt = (min, max) =>
+  Math.trunc(Math.random() * (max - min) + 1) + min;
+console.log(randomInt(20, 30));
+
+// Rounding integers
