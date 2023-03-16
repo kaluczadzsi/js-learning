@@ -617,10 +617,30 @@ console.log(dogsCopy);
 // console.log(isEven(2)); // true
 
 // Numeric separators
-const diameter = 287_4685_441;
-console.log(diameter);
+// const diameter = 287_4685_441;
+// console.log(diameter);
 
-const price = 345_19;
-console.log(price);
+// const price = 345_19;
+// console.log(price);
 
-console.log(Number('230_000')); // NaN
+// console.log(Number('230_000')); // NaN
+
+// BigInt
+console.log(Number.MAX_SAFE_INTEGER);
+console.log(2 ** 53 - 1);
+
+console.log(48484845484881848484848498489892488294n); // n transforms regular to bigint
+console.log(BigInt(99995958451111111111325989));
+
+// operators
+console.log(10000n + 10000n); // 20000
+// console.log(980000000000004444 - 3n); // cannot mix bigint with other numbers
+
+console.log(20n > 15); // true
+console.log(20n === 20); // false
+console.log(20n == '20'); // true
+
+const huge = 52292999466666478484484848n;
+console.log(huge + ' is REALLY big!'); // string
+
+// console.log(Math.sqrt(25n)); // ERROR! bigint cannot convert to a number
