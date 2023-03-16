@@ -626,21 +626,65 @@ console.log(dogsCopy);
 // console.log(Number('230_000')); // NaN
 
 // BigInt
-console.log(Number.MAX_SAFE_INTEGER);
-console.log(2 ** 53 - 1);
+// console.log(Number.MAX_SAFE_INTEGER);
+// console.log(2 ** 53 - 1);
 
-console.log(48484845484881848484848498489892488294n); // n transforms regular to bigint
-console.log(BigInt(99995958451111111111325989));
+// console.log(48484845484881848484848498489892488294n); // n transforms regular to bigint
+// console.log(BigInt(99995958451111111111325989));
 
-// operators
-console.log(10000n + 10000n); // 20000
-// console.log(980000000000004444 - 3n); // cannot mix bigint with other numbers
+// // operators
+// console.log(10000n + 10000n); // 20000
+// // console.log(980000000000004444 - 3n); // cannot mix bigint with other numbers
 
-console.log(20n > 15); // true
-console.log(20n === 20); // false
-console.log(20n == '20'); // true
+// console.log(20n > 15); // true
+// console.log(20n === 20); // false
+// console.log(20n == '20'); // true
 
-const huge = 52292999466666478484484848n;
-console.log(huge + ' is REALLY big!'); // string
+// const huge = 52292999466666478484484848n;
+// console.log(huge + ' is REALLY big!'); // string
 
 // console.log(Math.sqrt(25n)); // ERROR! bigint cannot convert to a number
+
+const movementsDates = [
+  '2019-11-18T21:31:17.178Z',
+  '2019-12-23T07:42:02.383Z',
+  '2020-01-28T09:15:04.904Z',
+  '2020-04-01T10:17:24.185Z',
+  '2020-05-08T14:11:59.604Z',
+  '2020-05-27T17:01:17.194Z',
+  '2020-07-11T23:36:17.929Z',
+  '2020-07-12T10:51:36.790Z',
+];
+
+// Create a date
+// MONTH is zero based in JS!
+// const now = new Date();
+// console.log(now);
+
+// console.log(new Date('Aug 02 2020 18:05:41'));
+// console.log(new Date('December 24, 2015'));
+// console.log(new Date(movementsDates[0]));
+
+// console.log(new Date(2037, 10, 19, 15, 23, 5));
+
+// console.log(new Date(0)); // UNIX: 1970 jan 01
+// console.log(new Date(3 * 24 * 60 * 60 * 1000)); // UNIX: 1970 jan 04
+// const timestamp = 3 * 24 * 60 * 60 * 1000;
+// console.log(timestamp); // 25920000
+
+// Working with dates
+const future = new Date(2037, 10, 19); // 2037 Nov 19. (Month zero based)
+console.log(future);
+console.log(future.getFullYear()); // 2037
+console.log(future.getMonth()); // 10
+console.log(future.getDate()); // 19
+console.log(future.getDay()); // 4 -> 0 is sunday
+console.log(future.toISOString()); // 2037-11-18T23:00:00.000Z
+console.log(future.getTime()); // 2142198000000
+console.log(new Date(2142198000000));
+
+console.log(Date.now()); // 1678990578026
+future.setFullYear(2040);
+console.log(future);
+
+console.log(new Date().getTime() - new Date('1994 05 20').getTime() / 24);
