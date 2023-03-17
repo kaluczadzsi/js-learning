@@ -673,18 +673,28 @@ const movementsDates = [
 // console.log(timestamp); // 25920000
 
 // Working with dates
-const future = new Date(2037, 10, 19); // 2037 Nov 19. (Month zero based)
-console.log(future);
-console.log(future.getFullYear()); // 2037
-console.log(future.getMonth()); // 10
-console.log(future.getDate()); // 19
-console.log(future.getDay()); // 4 -> 0 is sunday
-console.log(future.toISOString()); // 2037-11-18T23:00:00.000Z
-console.log(future.getTime()); // 2142198000000
-console.log(new Date(2142198000000));
+// const future = new Date(2037, 10, 19); // 2037 Nov 19. (Month zero based)
+// console.log(future);
+// console.log(future.getFullYear()); // 2037
+// console.log(future.getMonth()); // 10
+// console.log(future.getDate()); // 19
+// console.log(future.getDay()); // 4 -> 0 is sunday
+// console.log(future.toISOString()); // 2037-11-18T23:00:00.000Z
+// console.log(future.getTime()); // 2142198000000
+// console.log(new Date(2142198000000));
 
-console.log(Date.now()); // 1678990578026
-future.setFullYear(2040);
-console.log(future);
+// console.log(Date.now()); // 1678990578026
+// future.setFullYear(2040);
+// console.log(future);
 
-console.log(new Date().getTime() - new Date('1994 05 20').getTime() / 24);
+// console.log(new Date().getTime() - new Date('1994 05 20').getTime() / 24);
+
+// const future = new Date(2037, 10, 19); // 2037 Nov 19. (Month zero based)
+// console.log(+future);
+
+// const calcDaysPassed = (date1, date2) =>
+//   Math.abs((date2 - date1) / (1000 * 60 * 60 * 24));
+
+// const days1 = calcDaysPassed(new Date(2037, 3, 3, 8), new Date(2037, 3, 2));
+
+// console.log(days1);
