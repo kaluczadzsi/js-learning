@@ -698,3 +698,20 @@ const movementsDates = [
 // const days1 = calcDaysPassed(new Date(2037, 3, 3, 8), new Date(2037, 3, 2));
 
 // console.log(days1);
+
+const num = 3884764.23;
+
+const options = {
+  style: 'currency',
+  unit: 'celsius',
+  currency: 'HUF',
+  // useGrouping: false,
+};
+
+console.log('Hungary:', new Intl.NumberFormat('hu-HU').format(num));
+console.log(
+  'Browser:',
+  new Intl.NumberFormat(navigator.language).format(999455.4894)
+);
+
+console.log(new Intl.NumberFormat(navigator.language, options).format(num));
