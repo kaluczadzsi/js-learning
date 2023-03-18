@@ -699,19 +699,30 @@ const movementsDates = [
 
 // console.log(days1);
 
-const num = 3884764.23;
+// const num = 3884764.23;
 
-const options = {
-  style: 'currency',
-  unit: 'celsius',
-  currency: 'HUF',
-  // useGrouping: false,
-};
+// const options = {
+//   style: 'currency',
+//   unit: 'celsius',
+//   currency: 'HUF',
+//   // useGrouping: false,
+// };
 
-console.log('Hungary:', new Intl.NumberFormat('hu-HU').format(num));
-console.log(
-  'Browser:',
-  new Intl.NumberFormat(navigator.language).format(999455.4894)
+// console.log('Hungary:', new Intl.NumberFormat('hu-HU').format(num));
+// console.log(
+//   'Browser:',
+//   new Intl.NumberFormat(navigator.language).format(999455.4894)
+// );
+
+// console.log(new Intl.NumberFormat(navigator.language, options).format(num));
+
+const ingredients = ['olives', 'spinach'];
+const pizzaTimer = setTimeout(
+  (ing1, ing2) => console.log(`Here is your pizza 🍕 with ${ing1} and ${ing2}`),
+  1000,
+  ...ingredients
 );
+console.log('Waiting...');
 
-console.log(new Intl.NumberFormat(navigator.language, options).format(num));
+if (ingredients.includes('spinach')) clearTimeout(pizzaTimer);
+console.log(pizzaTimer);
