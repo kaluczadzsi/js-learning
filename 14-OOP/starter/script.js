@@ -24,3 +24,26 @@ console.log(matilda, jack);
 
 console.log(gabor instanceof Person);
 // console.log(jay instanceof Person);
+
+// Prototypes
+
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+gabor.calcAge();
+matilda.calcAge();
+jack.calcAge();
+
+console.log(gabor.__proto__);
+console.log(gabor.__proto__ == Person.prototype);
+
+console.log(Person.prototype.isPrototypeOf(gabor));
+
+Person.prototype.species = 'Homo Sapiens';
+
+console.log(gabor.species);
+console.log(gabor.hasOwnProperty('firstName'));
+console.log(gabor.hasOwnProperty('species'));
