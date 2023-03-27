@@ -47,3 +47,22 @@ Person.prototype.species = 'Homo Sapiens';
 console.log(gabor.species);
 console.log(gabor.hasOwnProperty('firstName'));
 console.log(gabor.hasOwnProperty('species'));
+
+// Object.prototype (top of prototype chain)
+console.log(gabor.__proto__.__proto__);
+
+console.dir(Person.prototype.constructor);
+
+const array = [3, 5, 66, 65, 66]; // new Array === []
+console.log(array.__proto__);
+console.log(array.__proto__ === Array.prototype);
+
+console.log(array.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(array.unique());
+
+const h1 = document.querySelector('h1');
