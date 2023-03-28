@@ -122,7 +122,7 @@ jessica.greet();
 // 1. Classes are NOT hoisted
 // 2. Classes are first-class citizens
 // 3. Classes are executed in strict mode
-*/
+
 
 const account = {
   owner: 'jonas',
@@ -137,3 +137,37 @@ const account = {
 };
 account.latest = 50;
 console.log(account.latest);
+*/
+
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.hey = function () {
+  console.log('Hey there 👋');
+  console.log(this);
+};
+
+Person.hey();
+const gabor = new Person('Gabor', 1994);
+// gabor.hey(); // ERROR
+
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  static hey() {
+    console.log('Hey there 👋');
+    console.log(this);
+  }
+}
+
+// new PersonCl('Tony Ferguson', 1987).hey();
+PersonCl.hey();
