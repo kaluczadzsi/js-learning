@@ -1,5 +1,5 @@
 'use strict';
-
+/* 
 const Person = function (firstName, birthYear) {
   // Instance properties
   this.firstName = firstName;
@@ -76,12 +76,12 @@ const Car = function (make, speed) {
 
 Car.prototype.accelerate = function () {
   this.speed += 10;
-  console.log(`${this.make} is going with ${this.speed} km/h`);
+  console.log(`${this.make} is going at ${this.speed} km/h`);
 };
 
 Car.prototype.brake = function () {
   this.speed -= 5;
-  console.log(`${this.make} is going with ${this.speed} km/h`);
+  console.log(`${this.make} is going at ${this.speed} km/h`);
 };
 
 const bmw = new Car('BMW', 120);
@@ -91,3 +91,35 @@ bmw.accelerate();
 bmw.brake();
 
 mercedes.accelerate();
+
+
+// class expression
+// const Person = class {};
+
+// class declaration
+class Person {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+  // Methods will be added to .prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+}
+
+const jessica = new Person('Jessica', 1996);
+jessica.calcAge();
+
+console.log(jessica.__proto__ === Person.prototype);
+
+// Person.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+
+jessica.greet();
+
+// 1. Classes are NOT hoisted
+// 2. Classes are first-class citizens
+// 3. Classes are executed in strict mode
+*/
