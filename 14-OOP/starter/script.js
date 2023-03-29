@@ -207,7 +207,7 @@ sarah.calcAge();
 Car.prototype.brake = function () {
   this.speed -= 5;
   console.log(`${this.make} is going at ${this.speed} km/h`);
-}; */
+}; 
 
 class Car {
   constructor(make, speed) {
@@ -242,3 +242,26 @@ bmw.accelerate();
 bmw.break();
 bmw.speedUS = 50;
 console.log(bmw);
+*/
+const Person = function (firstName, birthYear) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+};
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+const Student = function (firstName, birthYear, course) {
+  this.firstName = firstName;
+  this.birthYear = birthYear;
+  this.course = course;
+};
+
+Student.prototype.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const mike = new Student('Mike', 2020, 'Computer Science');
+console.log(mike);
+mike.introduce();
