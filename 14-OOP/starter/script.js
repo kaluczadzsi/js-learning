@@ -242,7 +242,7 @@ bmw.accelerate();
 bmw.break();
 bmw.speedUS = 50;
 console.log(bmw);
-*/
+
 const Person = function (firstName, birthYear) {
   this.firstName = firstName;
   this.birthYear = birthYear;
@@ -253,10 +253,11 @@ Person.prototype.calcAge = function () {
 };
 
 const Student = function (firstName, birthYear, course) {
-  this.firstName = firstName;
-  this.birthYear = birthYear;
+  Person.call(this, firstName, birthYear);
   this.course = course;
 };
+
+Student.prototype = Object.create(Person.prototype);
 
 Student.prototype.introduce = function () {
   console.log(`My name is ${this.firstName} and I study ${this.course}`);
@@ -265,3 +266,62 @@ Student.prototype.introduce = function () {
 const mike = new Student('Mike', 2020, 'Computer Science');
 console.log(mike);
 mike.introduce();
+mike.calcAge();
+
+console.log(mike.__proto__);
+console.log(mike.__proto__.__proto__);
+
+Student.prototype.constructor = Student;
+console.log(Student.prototype.constructor);
+*/
+
+// Coding challenge #3
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} is going at ${this.speed} km/h`);
+};
+
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} is going at ${this.speed} km/h`);
+};
+
+const ElectricCar = function (make, speed, charge) {
+  Car.call(this, make, speed);
+};
+
+ElectricCar.prototype = Object.create(Car.prototype);
+
+ElectricCar.prototype.chargeBattery = function (chargeTo) {
+  this.charge = chargeTo;
+};
+
+ElectricCar.prototype.accelerate = function () {
+  this.speed += 20;
+  this.charge--;
+  console.log(
+    `${this.make} going at ${this.speed} km/h, with a charge of ${this.charge}`
+  );
+};
+
+ElectricCar.prototype.constructor = ElectricCar;
+
+const ev = new ElectricCar('ford', 20, 50);
+
+console.log(ev);
+ev.chargeBattery(50);
+console.log(ev);
+ev.accelerate();
+ev.accelerate();
+ev.accelerate();
+ev.brake();
+ev.brake();
+console.log(ev);
+console.log(ElectricCar.prototype.constructor);
+
+console.log(new Car('d', 20));
