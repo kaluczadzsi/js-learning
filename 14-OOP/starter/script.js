@@ -325,7 +325,7 @@ console.log(ev);
 console.log(ElectricCar.prototype.constructor);
 
 console.log(new Car('d', 20));
-*/
+
 
 class PersonCl {
   constructor(fullName, birthYear) {
@@ -389,3 +389,22 @@ class StudentCl extends PersonCl {
 const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
 martha.introduce();
 martha.calcAge();
+*/
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+
+const jay = Object.create(StudentProto);
+jay.init('Jax', 1994);
+console.log(jay.__proto__);
