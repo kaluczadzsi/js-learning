@@ -68,6 +68,11 @@ const getCountryAndNeighbour = function (country) {
   });
 };
 */
+const renderError = msg => {
+  countriesContainer.insertAdjacentText('beforeend', msg);
+  countriesContainer.style.opacity = 1;
+};
+
 const renderCountry = function (data, className = '') {
   const html = `
   <article class="country ${className}">
@@ -113,7 +118,16 @@ const getCountryData = function (country) {
       return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
     })
     .then(response => response.json())
-    .then(data => renderCountry(data, 'neighbour'));
+    .then(data => renderCountry(data, 'neighbour'))
+    .catch(err => {
+      console.error(`${err}`);
+      renderError('Something went wrong');
+    })
+    .finally(() => {
+      countriesContainer.style.opacity = 1;
+    });
 };
 
-getCountryData('usa');
+btn.addEventListener('click', () => {
+  getCountryData('usa');
+});
