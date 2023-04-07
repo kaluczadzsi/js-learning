@@ -213,4 +213,104 @@ Promise.resolve('Resolved promise 2').then(res => {
 });
 
 console.log('Test end');
+
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  // Executor function
+  console.log('Lottery draw is happening 🔮');
+  setTimeout(() => {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN 🎰');
+    } else {
+      reject(new Error('You lost your money 😭'));
+    }
+  }, 2000);
+});
+
+// prettier-ignore
+lotteryPromise
+.then(res => console.log(res))
+.catch(err => console.log(err));
+
+// Promisifying setTimeout
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+wait(2)
+  .then(() => {
+    console.log('I waited for 2 seconds');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('I waited for 1 second');
+  });
+
+Promise.resolve('Resolved').then(resp => console.log(resp));
+Promise.reject('Reject').catch(err => console.error(err));
 */
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+///////////////////////////////////////////////////////////////////
+const renderCountry = function (data, className = '') {
+  const html = `
+  <article class="country ${className}">
+    <img class="country__img" src="${data.flag}" />
+    <div class="country__data">
+      <h3 class="country__name">${data.name}</h3>
+      <h4 class="country__region">${data.region}</h4>
+      <p class="country__row"><span>👫</span>${(
+        +data.population / 1_000_000
+      ).toFixed(1)}M people</p>
+      <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+      <p class="country__row"><span>💰
+      </span>${data.currencies[0].name}</p>
+    </div>
+  </article>
+  `;
+
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+const key = '647704409398218655986x36265';
+
+const whereAmI = () => {
+  getPosition()
+    .then(pos => {
+      const { latitude: lat, longitude: lng } = pos.coords;
+
+      return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json&auth=${key}`);
+    })
+    .then(response => {
+      if (!response.ok)
+        throw new Error(`Problem with geocoding ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      console.log(`You are in ${data.city}, ${data.country}`);
+      return fetch(`https://restcountries.com/v2/name/${data.country}`);
+    })
+    .then(response => {
+      if (!response.ok) throw new Error(`Country not found ${response.status}`);
+      return response.json();
+    })
+    .then(data => {
+      const [dataObj] = data;
+      renderCountry(dataObj);
+    })
+    .catch(err => console.error(`${err.message} 🧨`));
+};
+
+btn.addEventListener('click', whereAmI());
