@@ -428,7 +428,7 @@ console.log('1: Will get location');
   }
   console.log('3: Finished getting location');
 })();
-*/
+
 
 const getJSON = function (url, errorMsg = 'Something went wrong') {
   return fetch(url).then(response => {
@@ -458,3 +458,64 @@ const get3Countries = async function (c1, c2, c3) {
   }
 };
 get3Countries('hungary', 'poland', 'china');
+
+
+const getJSON = function (url, errorMsg = 'Something went wrong') {
+  return fetch(url).then(response => {
+    if (!response.ok) throw new Error(`${errorMsg} (${response.status})`);
+
+    return response.json();
+  });
+};
+
+// Promise.race
+(async function () {
+  const res = await Promise.race([
+    getJSON('https://restcountries.com/v2/name/egypt'),
+    getJSON('https://restcountries.com/v2/name/italy'),
+    getJSON('https://restcountries.com/v2/name/mexico'),
+  ]);
+  console.log(res[0]);
+})();
+
+const timeout = function (s) {
+  return new Promise(function (_, reject) {
+    setTimeout(function () {
+      reject(new Error('request took too long'));
+    }, s * 1000);
+  });
+};
+
+// prettier-ignore
+Promise.race([
+  getJSON('https://restcountries.com/v2/name/tanzania'), 
+  timeout(4)
+])
+.then(data => console.log(data[0]))
+.catch(err => console.log(err));
+
+// Promise.allSettled
+// prettier-ignore
+Promise.allSettled([
+  Promise.resolve('success'),
+  Promise.reject('reject'),
+]).then(data => console.log(data))
+
+// Promise all
+// prettier-ignore
+Promise.all([
+  Promise.resolve('success'),
+  Promise.reject('reject'),
+])
+.then(data => console.log(data))
+.catch(err => console.log(err))
+
+// Promise.any [ES2021]
+// prettier-ignore
+Promise.any([
+  Promise.resolve('success'),
+  Promise.reject('reject'),
+])
+.then(data => console.log(data))
+.catch(err => console.log(err))
+*/
