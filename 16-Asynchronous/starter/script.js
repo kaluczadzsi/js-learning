@@ -250,7 +250,7 @@ wait(2)
 
 Promise.resolve('Resolved').then(resp => console.log(resp));
 Promise.reject('Reject').catch(err => console.error(err));
-*/
+
 
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
@@ -314,3 +314,33 @@ const whereAmI = () => {
 };
 
 btn.addEventListener('click', whereAmI());
+*/
+// Coding challenge #2
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+
+const createImage = function (imgPath) {
+  return new Promise(function (resolve, reject) {
+    const img = document.createElement('img');
+    img.src = imgPath;
+    document.querySelector('.images').appendChild(img);
+    resolve(img);
+    reject(new Error('🧨'));
+  });
+};
+
+// prettier-ignore
+createImage('img/img-1.jpg')
+.then((img)=> {
+  wait(2).then(()=> {
+    img.style.display ='none';
+    return createImage('img/img-2.jpg')
+  }).then((img)=> {
+    wait(2).then(()=> {
+      img.style.display = 'none';
+    })
+  })
+}).catch(err => console.log(err));
