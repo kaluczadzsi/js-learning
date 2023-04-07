@@ -314,7 +314,7 @@ const whereAmI = () => {
 };
 
 btn.addEventListener('click', whereAmI());
-*/
+
 // Coding challenge #2
 const wait = function (seconds) {
   return new Promise(function (resolve) {
@@ -344,3 +344,58 @@ createImage('img/img-1.jpg')
     })
   })
 }).catch(err => console.log(err));
+*/
+
+const renderCountry = function (data, className = '') {
+  const html = `
+  <article class="country ${className}">
+    <img class="country__img" src="${data.flag}" />
+    <div class="country__data">
+      <h3 class="country__name">${data.name}</h3>
+      <h4 class="country__region">${data.region}</h4>
+      <p class="country__row"><span>👫</span>${(
+        +data.population / 1_000_000
+      ).toFixed(1)} people</p>
+      <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
+      <p class="country__row"><span>💰
+      </span>${data.currencies[0].name}</p>
+    </div>
+  </article>
+  `;
+
+  countriesContainer.insertAdjacentHTML('beforeend', html);
+  countriesContainer.style.opacity = 1;
+};
+
+const getPosition = function () {
+  return new Promise(function (resolve, reject) {
+    // navigator.geolocation.getCurrentPosition(
+    //   position => resolve(position),
+    //   err => reject(err)
+    // );
+    navigator.geolocation.getCurrentPosition(resolve, reject);
+  });
+};
+
+const key = '647704409398218655986x36265';
+
+const whereAmI = async function () {
+  // Geolocation
+  const pos = await getPosition();
+  console.log(pos);
+  const { latitude: lat, longitude: lng } = pos.coords;
+
+  // prettier-ignore
+
+  // Reverse geocoding
+  const resGeo = await fetch(`https://geocode.xyz/${lat},${lng}?geoit=json&auth=${key}`);
+  const dataGeo = await resGeo.json();
+
+  // Country data
+  const res = await fetch(
+    `https://restcountries.com/v2/name/${dataGeo.country}`
+  );
+  const [data] = await res.json();
+  renderCountry(data);
+};
+whereAmI();
